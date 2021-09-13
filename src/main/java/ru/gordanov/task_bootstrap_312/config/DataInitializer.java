@@ -3,8 +3,8 @@ package ru.gordanov.task_bootstrap_312.config;
 import org.springframework.stereotype.Component;
 import ru.gordanov.task_bootstrap_312.entity.Role;
 import ru.gordanov.task_bootstrap_312.entity.User;
-import ru.gordanov.task_bootstrap_312.service.RoleServiceImpl;
-import ru.gordanov.task_bootstrap_312.service.UserServiceImpl;
+import ru.gordanov.task_bootstrap_312.service.RoleService;
+import ru.gordanov.task_bootstrap_312.service.UserService;
 
 import javax.annotation.PostConstruct;
 import java.util.Set;
@@ -12,10 +12,10 @@ import java.util.Set;
 @Component
 public class DataInitializer {
 
-    private final UserServiceImpl userService;
-    private final RoleServiceImpl roleService;
+    private final UserService userService;
+    private final RoleService roleService;
 
-    public DataInitializer(UserServiceImpl userService, RoleServiceImpl roleService) {
+    public DataInitializer(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }

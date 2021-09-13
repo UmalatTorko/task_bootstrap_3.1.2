@@ -4,18 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.gordanov.task_bootstrap_312.entity.User;
-import ru.gordanov.task_bootstrap_312.service.RoleServiceImpl;
-import ru.gordanov.task_bootstrap_312.service.UserServiceImpl;
+import ru.gordanov.task_bootstrap_312.service.RoleService;
+import ru.gordanov.task_bootstrap_312.service.UserService;
 
 import java.security.Principal;
 
 @Controller
 public class UserController {
 
-    private final UserServiceImpl userService;
-    private final RoleServiceImpl roleService;
+    private final UserService userService;
+    private final RoleService roleService;
 
-    public UserController(UserServiceImpl userService, RoleServiceImpl roleService) {
+    public UserController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }

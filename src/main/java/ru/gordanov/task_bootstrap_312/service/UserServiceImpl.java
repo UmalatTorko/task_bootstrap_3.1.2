@@ -19,10 +19,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final RoleServiceImpl roleService;
+    private final RoleService roleService;
     private final UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository, RoleServiceImpl roleService) {
+    public UserServiceImpl(UserRepository userRepository, RoleService roleService) {
         this.userRepository = userRepository;
         this.roleService = roleService;
     }
