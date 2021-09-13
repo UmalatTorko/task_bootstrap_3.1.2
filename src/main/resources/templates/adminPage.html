@@ -136,14 +136,11 @@
 
                                                                             <h6 class="text-center">
 
-                                                                                <fieldset disabled>
+
                                                                                 <label for="ID2" class="form-label"><b>ID</b></label>
                                                                                 <input type="text" class="form-control"
                                                                                        th:name="id" th:value="${user.id}"
-                                                                                       id="ID2">
-                                                                                </fieldset>
-                                                                                <input type="hidden" class="form-control"
-                                                                                       th:name="id" th:value="${user.id}">
+                                                                                       id="ID2" readonly>
 
                                                                                 <br/>
 
@@ -152,7 +149,7 @@
                                                                                 <input type="text" class="form-control"
                                                                                        th:name="name" th:value="${user.name}"
                                                                                        placeholder="First name"
-                                                                                       id="firstName2">
+                                                                                       id="firstName2" required>
 
                                                                                 <br/>
 
@@ -161,7 +158,7 @@
                                                                                 <input type="text" class="form-control"
                                                                                        th:name="surname" th:value="${user.surname}"
                                                                                        placeholder="Last name"
-                                                                                       id="lastName2">
+                                                                                       id="lastName2" required>
 
                                                                                 <br/>
 
@@ -169,7 +166,7 @@
                                                                                 <input type="number"
                                                                                        class="form-control"
                                                                                        th:name="age" th:value="${user.age}"
-                                                                                       placeholder="Age" id="age2">
+                                                                                       placeholder="Age" id="age2" required>
 
                                                                                 <br/>
 
@@ -177,7 +174,9 @@
                                                                                        class="form-label"><b>Email</b></label>
                                                                                 <input type="email" class="form-control"
                                                                                        th:name="email" th:value="${user.email}"
-                                                                                       placeholder="Email" id="email2">
+                                                                                       readonly
+                                                                                       onfocus="this.removeAttribute('readonly')"
+                                                                                       placeholder="Email" id="email2" required>
 
                                                                                 <br/>
 
@@ -185,10 +184,8 @@
                                                                                        class="form-label"><b>Password</b></label>
                                                                                 <input type="password"
                                                                                        class="form-control"
-
+                                                                                       th:name="password"
                                                                                        autocomplete="off"
-                                                                                       readonly
-                                                                                       onfocus="this.removeAttribute('readonly')"
                                                                                        placeholder="Password"
                                                                                        id="password2">
 
@@ -198,7 +195,7 @@
                                                                                 <select class="form-select" multiple
                                                                                         size="2"
                                                                                         aria-label="size 2 select example"
-                                                                                        name="rolesSelected">
+                                                                                        name="rolesSelected" required>
 
                                                                                     <th:block th:each="role : ${allRoles}">
                                                                                         <option th:value="${role}" th:text="${role}"></option>
@@ -356,39 +353,39 @@
                                                 <h6 class="text-center">
                                                     <label for="firstName" class="form-label"><b>First name</b></label>
                                                     <input type="text" class="form-control" th:field="*{name}"
-                                                           placeholder="First name" id="firstName">
+                                                           placeholder="First name" id="firstName" required>
 
                                                     <br/>
 
                                                     <label for="lastName" class="form-label"><b>Last name</b></label>
                                                     <input type="text" class="form-control" th:field="*{surname}"
-                                                           placeholder="Last name" id="lastName">
+                                                           placeholder="Last name" id="lastName" required>
 
                                                     <br/>
 
                                                     <label for="age" class="form-label"><b>Age</b></label>
                                                     <input type="number" class="form-control" th:field="*{age}"
-                                                           placeholder="Age" id="age">
+                                                           placeholder="Age" id="age" required>
 
                                                     <br/>
 
                                                     <label for="email" class="form-label"><b>Email</b></label>
                                                     <input type="email" class="form-control" th:field="*{email}"
-                                                           placeholder="Email" id="email">
+                                                           placeholder="Email" id="email"
+                                                           readonly onfocus="this.removeAttribute('readonly')" required>
 
                                                     <br/>
 
                                                     <label for="password" class="form-label"><b>Password</b></label>
-                                                    <input type="password" class="form-control" autocomplete="off"
+                                                    <input type="password" class="form-control" autocomplete="off" required
                                                            th:field="*{password}"
-                                                           readonly onfocus="this.removeAttribute('readonly')"
                                                            placeholder="Password" id="password">
 
                                                     <br/>
 
                                                     <label class="form-label"><b>Role</b></label>
                                                     <select class="form-select" multiple size="2"
-                                                            aria-label="size 2 select example" name="rolesSelected">
+                                                            aria-label="size 2 select example" name="rolesSelected" required>
 
                                                         <th:block th:each="role : ${allRoles}">
                                                         <option th:value="${role}" th:text="${role}"></option>

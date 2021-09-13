@@ -4,18 +4,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.gordanov.task_bootstrap_312.entity.User;
-import ru.gordanov.task_bootstrap_312.service.RoleService;
-import ru.gordanov.task_bootstrap_312.service.UserService;
+import ru.gordanov.task_bootstrap_312.service.RoleServiceImpl;
+import ru.gordanov.task_bootstrap_312.service.UserServiceImpl;
 
 import java.security.Principal;
 
 @Controller
 public class UserController {
 
-    private final UserService userService;
-    private final RoleService roleService;
+    private final UserServiceImpl userService;
+    private final RoleServiceImpl roleService;
 
-    public UserController(UserService userService, RoleService roleService) {
+    public UserController(UserServiceImpl userService, RoleServiceImpl roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }
@@ -55,9 +55,6 @@ public class UserController {
     @PatchMapping("/admin/update")
     public String update(@ModelAttribute("user") User user,
                          @RequestParam(value = "rolesSelected") String[] roles) {
-        if (user.getPassword() == null) {
-            user.setPassword(userService.getUserById(user.getId()).getPassword());
-        }
         userService.saveWithRole(user, roles);
         return "redirect:/admin";
     }
